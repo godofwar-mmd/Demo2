@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>Persian Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="menu-btn" id="menuBtn">⋮</div>
+
+<div class="menu-items" id="menuItems">
+    <a href="#" class="menu-link"><img src="https://cdn-icons-png.flaticon.com/512/25/25694.png"> خانه</a>
+    <a href="#" class="menu-link"><img src="https://cdn-icons-png.flaticon.com/512/891/891419.png"> محصولات</a>
+    <a href="#" id="languageBtn" class="menu-link"><img src="https://cdn-icons-png.flaticon.com/512/179/179330.png"> انتخاب زبان</a>
+    <a href="https://t.me/persiangame_fa" class="menu-link" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png"> تلگرام</a>
+    <a href="https://youtube.com/persiangame_fa" class="menu-link" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"> یوتیوب</a>
+</div>
+
+<div class="language-dropdown" id="languageDropdown">
+    <a href="#" data-lang="fa"><img src="https://flagcdn.com/w20/ir.png"> فارسی</a>
+    <a href="#" data-lang="en"><img src="https://flagcdn.com/w20/gb.png"> English</a>
+    <a href="#" data-lang="fr"><img src="https://flagcdn.com/w20/fr.png"> Français</a>
+    <a href="#" data-lang="es"><img src="https://flagcdn.com/w20/es.png"> Español</a>
+    <a href="#" data-lang="de"><img src="https://flagcdn.com/w20/de.png"> Deutsch</a>
+    <a href="#" data-lang="it"><img src="https://flagcdn.com/w20/it.png"> Italiano</a>
+    <a href="#" data-lang="ru"><img src="https://flagcdn.com/w20/ru.png"> Русский</a>
+</div>
+
+<div id="products" class="section">
+    <h1>انتخاب بازی</h1>
+    <div class="product">
+        <img src="product1.jpg" alt="محصول ۱">
+        <h2>محصول ۱</h2>
+        <button class="info-btn">دیدن اطلاعات بیشتر</button>
+    </div>
+    <div class="product">
+        <img src="product2.jpg" alt="محصول ۲">
+        <h2>محصول ۲</h2>
+        <button class="info-btn">دیدن اطلاعات بیشتر</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>n jeu', moreInfo: 'Voir plus d\'infos' },
+        'es': { home: 'Inicio', products: 'Productos', selectGame: 'Seleccionar juego', moreInfo: 'Ver más info' },
+        'de': { home: 'Startseite', products: 'Produkte', selectGame: 'Spiel auswählen', moreInfo: 'Mehr Infos' },
+        'it': { home: 'Home', products: 'Prodotti', selectGame: 'Seleziona gioco', moreInfo: 'Vedi più info' },
+        'ru': { home: 'Главная', products: 'Продукты', selectGame: 'Выбрать игру', moreInfo: 'Подробнее' }
+    };
+
+    const menuBtn = document.getElementById('menuBtn');
+    const menuItems = document.getElementById('menuItems');
+    const languageBtn = document.getElementById('languageBtn');
+    const languageDropdown = document.getElementById('languageDropdown');
+
+    menuBtn.addEventListener('click', () => {
+        menuItems.classList.toggle('active');
+    });
+
+    languageBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        languageDropdown.classList.toggle('show');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.language-dropdown') && !e.target.closest('#languageBtn')) {
+            languageDropdown.classList.remove('show');
+        }
+    });
+
+    document.querySelectorAll('.language-dropdown a').forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const lang = link.getAttribute('data-lang');
+            setLanguage(lang);
+        });
+    });
+
+    function setLanguage(lang) {
+        const menuLinks = document.querySelectorAll('.menu-link');
+        menuLinks[0].innerHTML = `<img src="https://cdn-icons-png.flaticon.com/512/25/25694.png"> ${translations[lang].home}`;
+        menuLinks[1].innerHTML = `<img src="https://cdn-icons-png.flaticon.com/512/891/891419.png"> ${translations[lang].products}`;
+        document.querySelector('#products h1').innerText = translations[lang].selectGame;
+        document.querySelectorAll('.info-btn').forEach(btn => btn.innerText = translations[lang].moreInfo);
+    }
+</script>
+
+</body>
+</html>        <h2>محصول ۱</h2>
+        <button class="info-btn">دیدن اطلاعات بیشتر</button>
+    </div>
+    <div class="product">
+        <img src="product2.jpg" alt="محصول ۲">
+        <h2>محصول ۲</h2>
+        <button class="info-btn">دیدن اطلاعات بیشتر</button>
+    </div>
+</div>
+
+<script>
+    const translations = {
+        'fa': { home: 'خانه', products: 'محصولات', selectGame: 'انتخاب بازی', moreInfo: 'دیدن اطلاعات بیشتر' },
+        'en': { home: 'Home', products: 'Products', selectGame: 'Select Game', moreInfo: 'See More Info' },
+        'fr': { home: 'Accueil', products: 'Produits', selectGame: 'Sélectionner un jeu', moreInfo: 'Voir plus d\'infos' },
+        'es': { home: 'Inicio', products: 'Productos', selectGame: 'Seleccionar juego', moreInfo: 'Ver más info' },
+        'de': { home: 'Startseite', products: 'Produkte', selectGame: 'Spiel auswählen', moreInfo: 'Mehr Infos' },
+        'it': { home: 'Home', products: 'Prodotti', selectGame: 'Seleziona gioco', moreInfo: 'Vedi più info' },
+        'ru': { home: 'Главная', products: 'Продукты', selectGame: 'Выбрать игру', moreInfo: 'Подробнее' }
+    };
+
+    const menuBtn = document.getElementById('menuBtn');
+    const menuItems = document.getElementById('menuItems');
+    const languageBtn = document.getElementById('languageBtn');
+    const languageDropdown = document.getElementById('languageDropdown');
+
+    menuBtn.addEventListener('click', () => {
+        menuItems.style.display = menuItems.style.display === 'block' ? 'none' : 'block';
+    });
+
+    languageBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        languageDropdown.style.display = languageDropdown.style.display === 'block' ? 'none' : 'block';
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.language-dropdown') && !e.target.closest('#languageBtn')) {
+            languageDropdown.style.display = 'none';
+        }
+    });
+
+    document.querySelectorAll('.language-dropdown a').forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const lang = link.getAttribute('data-lang');
+            setLanguage(lang);
+        });
+    });
+
+    function setLanguage(lang) {
+        const menuLinks = document.querySelectorAll('.menu-link');
+        menuLinks[0].innerHTML = `<img src="https://cdn-icons-png.flaticon.com/512/25/25694.png"> ${translations[lang].home}`;
+        menuLinks[1].innerHTML = `<img src="https://cdn-icons-png.flaticon.com/512/891/891419.png"> ${translations[lang].products}`;
+        document.querySelector('#products h1').innerText = translations[lang].selectGame;
+        document.querySelectorAll('.info-btn').forEach(btn => btn.innerText = translations[lang].moreInfo);
+    }
+
+    // swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    document.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+
+    document.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    });
+
+    function handleSwipe() {
+        const diff = touchStartX - touchEndX;
+        if (diff > 50) {
+            menuItems.style.display = 'block'; // swipe left → open
+        } else if (diff < -50) {
+            menuItems.style.display = 'none';  // swipe right → close
+        }
+    }
+</script>
+
+</body>
+</html>
