@@ -64,5 +64,21 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
         document.querySelector('.text-selectGame').innerText = translations[lang].selectGame;
         document.querySelector('.text-game1').innerText = translations[lang].game1;
         document.querySelector('.text-game2').innerText = translations[lang].game2;
+        langDropdown.style.display = 'none';
     });
+});
+
+const langToggle = document.querySelector('.lang-toggle');
+const langDropdown = document.querySelector('.lang-dropdown');
+
+langToggle.addEventListener('click', e => {
+    e.preventDefault();
+    langDropdown.style.display = langDropdown.style.display === 'flex' ? 'none' : 'flex';
+    e.stopPropagation();
+});
+
+document.addEventListener('click', e => {
+    if (!langDropdown.contains(e.target) && !langToggle.contains(e.target)) {
+        langDropdown.style.display = 'none';
+    }
 });
