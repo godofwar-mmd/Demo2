@@ -60,7 +60,7 @@ fetch('translation.json')
 .then(res => res.json())
 .then(translations => {
     const langList = document.getElementById('languageList');
-    langList.innerHTML = ''; // پاک کردن قبل از اضافه کردن
+    langList.innerHTML = '';
     for (let code in translations) {
         const langDiv = document.createElement('div');
         langDiv.className = 'lang-option';
@@ -90,7 +90,6 @@ document.getElementById('languageSelector').addEventListener('click', e => {
     document.getElementById('languageList').classList.toggle('show');
 });
 
-// بستن پنجره زبان با کلیک بیرون
 document.addEventListener('click', function(e) {
     if (!document.getElementById('languageSelector').contains(e.target) &&
         !document.getElementById('languageList').contains(e.target)) {
@@ -98,6 +97,7 @@ document.addEventListener('click', function(e) {
     }
 });
 
+// swipe handling
 let touchStartX = 0;
 let touchEndX = 0;
 
@@ -109,3 +109,14 @@ document.addEventListener('touchend', e => {
     touchEndX = e.changedTouches[0].screenX;
     handleSwipe();
 });
+
+function handleSwipe() {
+    const diffX = touchEndX - touchStartX;
+    if (Math.abs(diffX) > 50) {
+        if (diffX > 0) {
+            toggleMenu(false); // swipe right → close
+        } else {
+            toggleMenu(true);  // swipe left → open
+        }
+    }
+        }
