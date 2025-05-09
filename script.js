@@ -1,75 +1,81 @@
-window.addEventListener('load', function() {
-    setTimeout(function() {
-        document.getElementById('loading').style.display = 'none';
-    }, 4000);
+window.addEventListener('load', () => {
+    setTimeout(() => document.getElementById('loading').style.display = 'none', 4000);
 });
 
-function toggleMenu(open) {
-    const menu = document.getElementById('menuItems');
-    const btn = document.getElementById('menuBtn');
-    if (open) {
-        menu.classList.add('show');
-        btn.style.opacity = '0';
-    } else {
-        menu.classList.remove('show');
-        btn.style.opacity = '1';
+const menuBtn = document.getElementById('menuBtn');
+const menuItems = document.getElementById('menuItems');
+menuBtn.addEventListener('click', () => {
+    menuItems.classList.toggle('show');
+});
+
+const langBtn = document.getElementById('languageBtn');
+const langDropdown = document.getElementById('languageDropdown');
+langBtn.addEventListener('click', e => {
+    e.preventDefault();
+    langDropdown.style.display = langDropdown.style.display === 'block' ? 'none' : 'block';
+});
+
+document.addEventListener('click', e => {
+    if (!langBtn.contains(e.target) && !langDropdown.contains(e.target)) {
+        langDropdown.style.display = 'none';
     }
-}
-
-document.getElementById('menuBtn').addEventListener('click', () => {
-    const menu = document.getElementById('menuItems');
-    toggleMenu(!menu.classList.contains('show'));
 });
 
-let touchstartX = 0;
-let touchendX = 0;
-
-document.addEventListener('touchstart', e => {
-    touchstartX = e.changedTouches[0].screenX;
-});
-
-document.addEventListener('touchend', e => {
-    touchendX = e.changedTouches[0].screenX;
-    handleGesture();
-});
-
-function handleGesture() {
-    if (touchendX < touchstartX - 50) {
-        toggleMenu(true);
+const translations = {
+    fa: {
+        home: "خانه",
+        products: "محصولات",
+        contact: "ارتباط با ما",
+        telegram: "تلگرام",
+        youtube: "یوتیوب",
+        selectGame: "انتخاب بازی",
+        game1: "خدای جنگ ۲",
+        game2: "رزیدنت اویل ۴"
+    },
+    en: {
+        home: "Home",
+        products: "Products",
+        contact: "Contact Us",
+        telegram: "Telegram",
+        youtube: "YouTube",
+        selectGame: "Select Game",
+        game1: "God of War 2",
+        game2: "Resident Evil 4"
+    },
+    ar: {
+        home: "الرئيسية",
+        products: "المنتجات",
+        contact: "اتصل بنا",
+        telegram: "تيليجرام",
+        youtube: "يوتيوب",
+        selectGame: "اختر لعبة",
+        game1: "إله الحرب 2",
+        game2: "ريزدنت إيفل 4"
+    },
+    fr: {
+        home: "Accueil",
+        products: "Produits",
+        contact: "Contactez-nous",
+        telegram: "Telegram",
+        youtube: "YouTube",
+        selectGame: "Choisir un jeu",
+        game1: "Dieu de la guerre 2",
+        game2: "Resident Evil 4"
     }
-    if (touchendX > touchstartX + 50) {
-        toggleMenu(false);
-    }
-}
+};
 
-// Language selector
-const langBtnMain = document.querySelector('.lang-btn-main');
-const langDropdown = document.getElementById('langDropdown');
-
-langBtnMain.addEventListener('click', (e) => {
-    e.stopPropagation();
-    langDropdown.style.display = (langDropdown.style.display === 'flex') ? 'none' : 'flex';
-});
-
-document.addEventListener('click', () => {
-    langDropdown.style.display = 'none';
-});
-
-document.querySelectorAll('.lang-dropdown button').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        e.stopPropagation();
+document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+        e.preventDefault();
         const lang = btn.getAttribute('data-lang');
-        const t = translations[lang];
-        if (t) {
-            document.querySelector('.text-home').innerText = t.home;
-            document.querySelector('.text-products').innerText = t.products;
-            document.querySelector('.text-contact').innerText = t.contact;
-            document.querySelector('.text-telegram').innerText = t.telegram;
-            document.querySelector('.text-youtube').innerText = t.youtube;
-            document.querySelector('.text-selectGame').innerText = t.selectGame;
-            document.querySelector('.text-game1').innerText = t.game1;
-            document.querySelector('.text-game2').innerText = t.game2;
-        }
+        document.querySelector('.text-home').innerText = translations[lang].home;
+        document.querySelector('.text-products').innerText = translations[lang].products;
+        document.querySelector('.text-contact').innerText = translations[lang].contact;
+        document.querySelector('.text-telegram').innerText = translations[lang].telegram;
+        document.querySelector('.text-youtube').innerText = translations[lang].youtube;
+        document.querySelector('.text-selectGame').innerText = translations[lang].selectGame;
+        document.querySelector('.text-game1').innerText = translations[lang].game1;
+        document.querySelector('.text-game2').innerText = translations[lang].game2;
         langDropdown.style.display = 'none';
     });
 });
