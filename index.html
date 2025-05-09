@@ -22,15 +22,24 @@
         <img src="https://cdn-icons-png.flaticon.com/512/1170/1170627.png" alt="محصولات"> <span class="text-products">محصولات</span>
     </a>
     <a href="#" id="languageSelector">
-    <img src="Google_Translate_logo.png" alt="انتخاب زبان" style="width:24px; height:24px;">
-    <span>انتخاب زبان</span>
+        <img src="Google_Translate_logo.png" alt="انتخاب زبان" style="width:24px; height:24px;">
+        <span>انتخاب زبان</span>
     </a>
+    <div id="langPopup" style="display:none; background:black; padding:10px; border-radius:10px; margin-top:10px;">
+        <button onclick="changeLanguage('fa')">فارسی</button>
+        <button onclick="changeLanguage('en')">English</button>
+        <button onclick="changeLanguage('ar')">العربية</button>
+        <button onclick="changeLanguage('fr')">Français</button>
+        <button onclick="changeLanguage('de')">Deutsch</button>
+        <button onclick="changeLanguage('es')">Español</button>
+        <button onclick="changeLanguage('zh')">中文</button>
+    </div>
     <a href="https://youtube.com" target="_blank">
         <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="یوتیوب"> <span>یوتیوب</span>
     </a>
     <a href="https://t.me/YourTelegramLink" target="_blank">
-    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="تلگرام" style="width:24px; height:24px;">
-    <span>تلگرام</span>
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="تلگرام" style="width:24px; height:24px;">
+        <span>تلگرام</span>
     </a>
     <a href="https://t.me/+Jna8gMc0g75mODE0" target="_blank">
         <img src="https://cdn-icons-png.flaticon.com/512/134/134932.png" alt="ارتباط با ما"> <span>ارتباط با ما</span>
@@ -56,6 +65,7 @@
     </div>
 </div>
 
+<script src="translations.json"></script>
 <script src="script.js"></script>
 </body>
-</html>
+            </html>
