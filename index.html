@@ -25,14 +25,31 @@
         <img src="Google_Translate_logo.png" alt="انتخاب زبان" style="width:24px; height:24px;">
         <span>انتخاب زبان</span>
     </a>
-    <div id="langPopup" style="display:none; background:black; padding:10px; border-radius:10px; margin-top:10px;">
-        <button onclick="changeLanguage('fa')">فارسی</button>
-        <button onclick="changeLanguage('en')">English</button>
-        <button onclick="changeLanguage('ar')">العربية</button>
-        <button onclick="changeLanguage('fr')">Français</button>
-        <button onclick="changeLanguage('de')">Deutsch</button>
-        <button onclick="changeLanguage('es')">Español</button>
-        <button onclick="changeLanguage('zh')">中文</button>
+    <div id="languageModal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%);
+background:black; padding:20px; border-radius:10px; z-index:10000;">
+    <ul style="list-style:none; padding:0; margin:0;">
+        <li style="margin:10px 0; cursor:pointer;" onclick="setLanguage('fa')">
+            <img src="https://flagcdn.com/w40/ir.png" style="width:24px;"> فارسی
+        </li>
+        <li style="margin:10px 0; cursor:pointer;" onclick="setLanguage('en')">
+            <img src="https://flagcdn.com/w40/us.png" style="width:24px;"> English
+        </li>
+        <li style="margin:10px 0; cursor:pointer;" onclick="setLanguage('ar')">
+            <img src="https://flagcdn.com/w40/sa.png" style="width:24px;"> العربية
+        </li>
+        <li style="margin:10px 0; cursor:pointer;" onclick="setLanguage('fr')">
+            <img src="https://flagcdn.com/w40/fr.png" style="width:24px;"> Français
+        </li>
+        <li style="margin:10px 0; cursor:pointer;" onclick="setLanguage('de')">
+            <img src="https://flagcdn.com/w40/de.png" style="width:24px;"> Deutsch
+        </li>
+        <li style="margin:10px 0; cursor:pointer;" onclick="setLanguage('ru')">
+            <img src="https://flagcdn.com/w40/ru.png" style="width:24px;"> Русский
+        </li>
+        <li style="margin:10px 0; cursor:pointer;" onclick="setLanguage('zh')">
+            <img src="https://flagcdn.com/w40/cn.png" style="width:24px;"> 中文
+        </li>
+    </ul>
     </div>
     <a href="https://youtube.com" target="_blank">
         <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="یوتیوب"> <span>یوتیوب</span>
