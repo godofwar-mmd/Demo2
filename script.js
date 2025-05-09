@@ -45,56 +45,13 @@ document.querySelectorAll('.menu-items a').forEach(item => {
     });
 });
 
-// Language selector
-const flags = {
-    fa: 'https://flagcdn.com/w40/ir.png',
-    en: 'https://flagcdn.com/w40/us.png',
-    ar: 'https://flagcdn.com/w40/sa.png',
-    fr: 'https://flagcdn.com/w40/fr.png',
-    es: 'https://flagcdn.com/w40/es.png',
-    de: 'https://flagcdn.com/w40/de.png',
-    it: 'https://flagcdn.com/w40/it.png'
-};
-
-fetch('translation.json')
-.then(res => res.json())
-.then(translations => {
-    const langList = document.getElementById('languageList');
-    langList.innerHTML = '';
-    for (let code in translations) {
-        const langDiv = document.createElement('div');
-        langDiv.className = 'lang-option';
-        langDiv.innerHTML = `<img src="${flags[code] || ''}" alt="${code}"><span>${code.toUpperCase()}</span>`;
-        langDiv.addEventListener('click', () => {
-            applyTranslation(translations[code]);
-            langList.classList.remove('show');
-        });
-        langList.appendChild(langDiv);
-    }
-});
-
-function applyTranslation(data) {
-    document.querySelector('.text-home').textContent = data.home;
-    document.querySelector('.text-products').textContent = data.products;
-    document.querySelector('.text-selectGame').textContent = data.selectGame;
-    document.querySelector('.text-game1').textContent = data.game1;
-    document.querySelector('.text-game2').textContent = data.game2;
-    document.querySelector('#languageSelector span').textContent = 'انتخاب زبان';
-    document.querySelector('a[href*="telegram"] span').textContent = data.telegram;
-    document.querySelector('a[href*="youtube"] span').textContent = data.youtube;
-    document.querySelector('a[href*="contact"] span').textContent = data.contact;
-}
-
-document.getElementById('languageSelector').addEventListener('click', e => {
-    e.preventDefault();
-    document.getElementById('languageList').classList.toggle('show');
-});
-
-document.addEventListener('click', function(e) {
-    if (!document.getElementById('languageSelector').contains(e.target) &&
-        !document.getElementById('languageList').contains(e.target)) {
-        document.getElementById('languageList').classList.remove('show');
-    }
+// Search functionality
+document.getElementById('searchInput').addEventListener('input', function() {
+    const query = this.value.toLowerCase();
+    document.querySelectorAll('.product').forEach(product => {
+        const title = product.querySelector('h2').textContent.toLowerCase();
+        product.style.display = title.includes(query) ? '' : 'none';
+    });
 });
 
 // swipe handling
@@ -114,9 +71,9 @@ function handleSwipe() {
     const diffX = touchEndX - touchStartX;
     if (Math.abs(diffX) > 50) {
         if (diffX > 0) {
-            toggleMenu(false); // swipe right → close
+            toggleMenu(false);
         } else {
-            toggleMenu(true);  // swipe left → open
+            toggleMenu(true);
         }
     }
-        }
+}
