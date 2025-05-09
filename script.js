@@ -85,11 +85,17 @@ document.querySelectorAll('.menu-items a').forEach(item => {
     });
 });
 
-document.getElementById('languageSelector').addEventListener('click', (e) => {
+document.getElementById('languageSelector').addEventListener('click', function(e) {
     e.preventDefault();
-    const popup = document.getElementById('langPopup');
-    popup.style.display = (popup.style.display === 'none') ? 'flex' : 'none';
+    const modal = document.getElementById('languageModal');
+    modal.style.display = (modal.style.display === 'none') ? 'block' : 'none';
 });
+
+function setLanguage(lang) {
+    console.log('زبان انتخاب شده:', lang);
+    // اینجا می‌تونی کد تغییر زبان رو فراخوانی کنی
+    document.getElementById('languageModal').style.display = 'none';
+}
 
 function changeLanguage(lang) {
     const texts = translations[lang];
