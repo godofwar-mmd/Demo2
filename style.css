@@ -1,11 +1,6 @@
 body {
     margin: 0;
-    padding: 0;
-    background-image: url('background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background: url('background.jpg') center/cover fixed;
     font-family: sans-serif;
     direction: rtl;
     color: white;
@@ -14,10 +9,7 @@ body {
 
 #loading {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0; width: 100%; height: 100%;
     background: black;
     display: flex;
     justify-content: center;
@@ -25,11 +17,7 @@ body {
     z-index: 9999;
 }
 
-#loading img {
-    width: 80px;
-    opacity: 0.8;
-    animation: pulse 1s infinite;
-}
+#loading img { width: 80px; animation: pulse 1s infinite; opacity: 0.8; }
 
 @keyframes pulse {
     0% { transform: scale(1); }
@@ -38,31 +26,19 @@ body {
 }
 
 .menu-btn {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    font-size: 28px;
-    cursor: pointer;
-    z-index: 1000;
-    color: white;
-    background: #000;
-    border-radius: 50%;
-    padding: 5px 10px;
-    transition: opacity 0.3s, background 0.3s;
+    position: fixed; top: 10px; right: 10px;
+    font-size: 28px; cursor: pointer; color: white;
+    background: #000; border-radius: 50%; padding: 5px 10px;
 }
 
 .menu-items {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 60%;
-    height: 100%;
-    background-color: rgba(50, 50, 50, 0.9);
+    position: fixed; top: 0; right: 0;
+    width: 60%; height: 100%;
+    background: rgba(50,50,50,0.9);
     padding: 20px;
     transform: translateX(100%);
-    opacity: 0;
-    pointer-events: none;
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0; pointer-events: none;
+    transition: transform 0.3s, opacity 0.3s;
 }
 
 .menu-items.show {
@@ -72,74 +48,43 @@ body {
 }
 
 .menu-items a {
-    display: flex;
-    align-items: center;
-    color: white;
-    text-decoration: none;
-    margin: 15px 0;
-    padding: 10px;
-    font-size: 18px;
+    display: flex; align-items: center;
+    color: white; text-decoration: none;
+    margin: 10px 0; padding: 10px;
 }
 
-.menu-items a img {
-    width: 24px;
-    height: 24px;
-    margin-left: 10px;
+.menu-items a img { width: 24px; height: 24px; margin-left: 10px; }
+
+.language-list {
+    display: none;
+    flex-direction: column;
+    margin: 10px 0;
 }
 
-.menu-items a span {
-    transition: color 0.5s ease;
+.language-list.show { display: flex; }
+
+.language-list div {
+    display: flex; align-items: center;
+    cursor: pointer; margin: 5px 0;
 }
 
-#langPopup {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    margin-top: 10px;
-    background: black;
-    padding: 10px;
-    border-radius: 10px;
-}
+.language-list img { width: 20px; height: 20px; margin-left: 10px; }
 
-#langPopup button {
-    background: white;
-    color: black;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.section {
-    padding: 80px 20px 20px;
-    text-align: center;
-}
+.section { padding: 80px 20px 20px; text-align: center; }
 
 .product {
     background: rgba(0,0,0,0.6);
-    margin: 10px auto;
-    padding: 10px;
-    width: 80%;
-    border-radius: 10px;
+    margin: 10px auto; padding: 10px;
+    width: 80%; border-radius: 10px;
 }
 
-.product img {
-    width: 100%;
-    border-radius: 10px;
-}
+.product img { width: 100%; border-radius: 10px; }
 
 .pal-btn, .ntsc-btn {
-    background-color: white;
-    border: none;
-    padding: 12px 24px;
-    color: black;
-    margin: 5px;
-    border-radius: 10px;
+    background: white; color: black;
+    border: none; margin: 5px;
+    padding: 12px 24px; border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 
-.pal-btn:hover, .ntsc-btn:hover {
-    background-color: #ddd;
-}
+.pal-btn:hover, .ntsc-btn:hover { background: #ddd; }
