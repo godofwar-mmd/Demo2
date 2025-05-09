@@ -63,15 +63,13 @@ document.addEventListener('touchend', (e) => {
 function handleGesture() {
     const menu = document.getElementById('menuItems');
     const isMenuOpen = menu.classList.contains('show');
-    const swipeThreshold = 50; // فاصله حداقل برای تشخیص swipe
+    const swipeThreshold = 50;
 
     if (touchStartX - touchEndX > swipeThreshold) {
-        // کشیدن به چپ → باز شدن منو
         toggleMenu(true);
     }
 
     if (touchEndX - touchStartX > swipeThreshold && isMenuOpen) {
-        // کشیدن به راست → بستن منو
         toggleMenu(false);
     }
 }
@@ -83,6 +81,21 @@ document.querySelectorAll('.menu-items a').forEach(item => {
         span.style.color = 'yellow';
         setTimeout(() => {
             span.style.color = originalColor || 'white';
-        }, 1500); // 1500 میلی‌ثانیه = 1.5 ثانیه
+        }, 1500);
     });
 });
+
+document.getElementById('languageSelector').addEventListener('click', (e) => {
+    e.preventDefault();
+    const popup = document.getElementById('langPopup');
+    popup.style.display = (popup.style.display === 'none') ? 'flex' : 'none';
+});
+
+function changeLanguage(lang) {
+    const texts = translations[lang];
+    document.querySelector('.text-home').textContent = texts.home;
+    document.querySelector('.text-products').textContent = texts.products;
+    document.querySelector('.text-selectGame').textContent = texts.selectGame;
+    document.querySelector('.text-game1').textContent = texts.game1;
+    document.querySelector('.text-game2').textContent = texts.game2;
+}
