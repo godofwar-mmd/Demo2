@@ -77,3 +77,10 @@ function handleSwipe() {
         }
     }
 }
+
+// Language selector handling
+document.getElementById('languageSelector').addEventListener('click', function(e) {
+    e.preventDefault();
+    const langList = document.getElementById('languageList');
+    langList.classList.toggle('show');
+});
