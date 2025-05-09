@@ -3,95 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>سایت چندزبانه</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-image: url('background.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            font-family: sans-serif;
-            direction: rtl;
-            color: white;
-            overflow-x: hidden;
-        }
-
-        .menu-btn {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            font-size: 28px;
-            cursor: pointer;
-            z-index: 1000;
-            color: white;
-            background: #000;
-            border-radius: 50%;
-            padding: 5px 10px;
-        }
-
-        .menu-items {
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 60%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.95);
-            padding: 20px;
-            transform: translateX(100%);
-            opacity: 0;
-            pointer-events: none;
-            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-        }
-
-        .menu-items.show {
-            transform: translateX(0);
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .menu-items a {
-            display: block;
-            color: white;
-            text-decoration: none;
-            margin: 15px 0;
-            font-size: 18px;
-        }
-
-        .language-selector {
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            z-index: 1001;
-        }
-
-        #langIcon {
-            width: 30px;
-            cursor: pointer;
-        }
-
-        #langMenu {
-            display: none;
-            background: #000;
-            position: absolute;
-            margin-top: 5px;
-            padding: 10px;
-            border-radius: 5px;
-        }
-
-        .lang-btn {
-            display: flex;
-            align-items: center;
-            margin: 5px 0;
-            cursor: pointer;
-        }
-
-        .lang-btn img {
-            width: 20px;
-            margin-left: 8px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -107,69 +19,15 @@
 
     <div class="language-selector">
         <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Translate_Icon.png" id="langIcon">
-        <div id="langMenu">
-            <div class="lang-btn" data-lang="fa"><img src="https://flagcdn.com/w20/ir.png"> فارسی</div>
-            <div class="lang-btn" data-lang="en"><img src="https://flagcdn.com/w20/gb.png"> English</div>
-            <div class="lang-btn" data-lang="fr"><img src="https://flagcdn.com/w20/fr.png"> Français</div>
-            <div class="lang-btn" data-lang="de"><img src="https://flagcdn.com/w20/de.png"> Deutsch</div>
-            <div class="lang-btn" data-lang="es"><img src="https://flagcdn.com/w20/es.png"> Español</div>
-            <div class="lang-btn" data-lang="ru"><img src="https://flagcdn.com/w20/ru.png"> Русский</div>
-            <div class="lang-btn" data-lang="cn"><img src="https://flagcdn.com/w20/cn.png"> 中文</div>
-            <div class="lang-btn" data-lang="ar"><img src="https://flagcdn.com/w20/sa.png"> العربية</div>
-        </div>
+        <div id="langMenu"></div>
     </div>
 
     <h2 class="text-selectGame">انتخاب بازی</h2>
     <div class="text-game1">خدای جنگ ۲</div>
     <div class="text-game2">رزیدنت اویل ۴</div>
 
-    <script>
-        const translations = {
-            fa: { home: "خانه", products: "محصولات", contact: "ارتباط با ما", telegram: "تلگرام", youtube: "یوتیوب", selectGame: "انتخاب بازی", game1: "خدای جنگ ۲", game2: "رزیدنت اویل ۴" },
-            en: { home: "Home", products: "Products", contact: "Contact Us", telegram: "Telegram", youtube: "YouTube", selectGame: "Select Game", game1: "God of War 2", game2: "Resident Evil 4" },
-            fr: { home: "Accueil", products: "Produits", contact: "Contactez-nous", telegram: "Telegram", youtube: "YouTube", selectGame: "Choisir un jeu", game1: "Dieu de la guerre 2", game2: "Resident Evil 4" },
-            de: { home: "Startseite", products: "Produkte", contact: "Kontakt", telegram: "Telegram", youtube: "YouTube", selectGame: "Spiel auswählen", game1: "God of War 2", game2: "Resident Evil 4" },
-            es: { home: "Inicio", products: "Productos", contact: "Contáctanos", telegram: "Telegram", youtube: "YouTube", selectGame: "Seleccionar juego", game1: "God of War 2", game2: "Resident Evil 4" },
-            ru: { home: "Главная", products: "Продукты", contact: "Связаться с нами", telegram: "Телеграм", youtube: "Ютуб", selectGame: "Выбор игры", game1: "God of War 2", game2: "Resident Evil 4" },
-            cn: { home: "首页", products: "产品", contact: "联系我们", telegram: "电报", youtube: "油管", selectGame: "选择游戏", game1: "战神2", game2: "生化危机4" },
-            ar: { home: "الصفحة الرئيسية", products: "المنتجات", contact: "اتصل بنا", telegram: "تلغرام", youtube: "يوتيوب", selectGame: "اختر لعبة", game1: "اله الحرب ٢", game2: "ريزدنت ايفل ٤" }
-        };
-
-        document.getElementById('menuBtn').addEventListener('click', () => {
-            const menu = document.getElementById('menuItems');
-            menu.classList.toggle('show');
-        });
-
-        document.getElementById('langIcon').addEventListener('click', (e) => {
-            const menu = document.getElementById('langMenu');
-            menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
-            e.stopPropagation();
-        });
-
-        document.addEventListener('click', () => {
-            document.getElementById('langMenu').style.display = 'none';
-        });
-
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.addEventListener('click', e => {
-                e.stopPropagation();
-                const lang = btn.getAttribute('data-lang');
-                applyTranslations(lang);
-                document.getElementById('langMenu').style.display = 'none';
-            });
-        });
-
-        function applyTranslations(lang) {
-            document.querySelector('.text-home').innerText = translations[lang].home;
-            document.querySelector('.text-products').innerText = translations[lang].products;
-            document.querySelector('.text-contact').innerText = translations[lang].contact;
-            document.querySelector('.text-telegram').innerText = translations[lang].telegram;
-            document.querySelector('.text-youtube').innerText = translations[lang].youtube;
-            document.querySelector('.text-selectGame').innerText = translations[lang].selectGame;
-            document.querySelector('.text-game1').innerText = translations[lang].game1;
-            document.querySelector('.text-game2').innerText = translations[lang].game2;
-        }
-    </script>
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
