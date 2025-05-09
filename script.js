@@ -1,7 +1,18 @@
+let audio = new Audio('ps2_startup.mp3');
+audio.loop = true;
+let isPlaying = false;
+
 window.addEventListener('load', function() {
     setTimeout(() => {
         document.getElementById('loading').style.display = 'none';
     }, 4000);
+
+    audio.play().then(() => {
+        isPlaying = true;
+        document.getElementById('soundIcon').src = 'https://cdn-icons-png.flaticon.com/512/727/727245.png';
+    }).catch(err => {
+        console.log('Autoplay failed:', err);
+    });
 });
 
 function toggleMenu(open) {
@@ -21,14 +32,17 @@ document.getElementById('menuBtn').addEventListener('click', () => {
     toggleMenu(!menu.classList.contains('show'));
 });
 
-document.addEventListener('click', e => {
-    if (!document.getElementById('languageBtn').contains(e.target)) {
-        document.getElementById('languageDropdown').style.display = 'none';
-    }
-});
-
-document.getElementById('languageBtn').addEventListener('click', e => {
+document.getElementById('playSoundBtn').addEventListener('click', function(e) {
     e.preventDefault();
-    const dropdown = document.getElementById('languageDropdown');
-    dropdown.style.display = dropdown.style.display === 'flex' ? 'none' : 'flex';
+    const soundIcon = document.getElementById('soundIcon');
+
+    if (!isPlaying) {
+        audio.play();
+        soundIcon.src = 'https://cdn-icons-png.flaticon.com/512/727/727245.png';
+        isPlaying = true;
+    } else {
+        audio.pause();
+        soundIcon.src = 'https://cdn-icons-png.flaticon.com/512/727/727269.png';
+        isPlaying = false;
+    }
 });
