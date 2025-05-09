@@ -2,32 +2,71 @@
 <html lang="fa">
 <head>
     <meta charset="UTF-8">
-    <title>سایت چندزبانه</title>
+    <title>Persian Game</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="menu-btn" id="menuBtn">☰</div>
+<div id="loading">
+    <img src="godhand.png" alt="Loading">
+</div>
 
-    <div class="menu-items" id="menuItems">
-        <a href="#" class="text-home">خانه</a>
-        <a href="#" class="text-products">محصولات</a>
-        <a href="#" class="text-contact">ارتباط با ما</a>
-        <a href="#" class="text-telegram">تلگرام</a>
-        <a href="#" class="text-youtube">یوتیوب</a>
+<div class="menu-btn" id="menuBtn">⋮</div>
+
+<div class="menu-items" id="menuItems">
+    <a href="index.html">
+        <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="خانه"> <span class="text-home">خانه</span>
+    </a>
+    <a href="index.html">
+        <img src="https://cdn-icons-png.flaticon.com/512/1170/1170627.png" alt="محصولات"> <span class="text-products">محصولات</span>
+    </a>
+    <a href="https://t.me/+Jna8gMc0g75mODE0" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/134/134932.png" alt="چت"> <span class="text-contact">ارتباط با ما</span>
+    </a>
+    <a href="https://t.me/persiangame_fa" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="تلگرام"> <span class="text-telegram">تلگرام</span>
+    </a>
+    <a href="https://youtube.com/persiangame_fa" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="یوتیوب"> <span class="text-youtube">یوتیوب</span>
+    </a>
+    <a href="https://instagram.com/persiangame_fa" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384015.png" alt="اینستاگرام"> <span class="text-instagram">اینستاگرام</span>
+    </a>
+    <a href="https://twitter.com/persiangame_fa" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="توییتر"> <span class="text-twitter">توییتر</span>
+    </a>
+
+    <div class="lang-select">
+        <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Language" id="langBtn">
+        <div class="lang-menu" id="langMenu">
+            <div class="lang-btn" data-lang="fa"><img src="https://flagcdn.com/w20/ir.png"> فارسی</div>
+            <div class="lang-btn" data-lang="en"><img src="https://flagcdn.com/w20/gb.png"> English</div>
+            <div class="lang-btn" data-lang="fr"><img src="https://flagcdn.com/w20/fr.png"> Français</div>
+            <div class="lang-btn" data-lang="de"><img src="https://flagcdn.com/w20/de.png"> Deutsch</div>
+            <div class="lang-btn" data-lang="es"><img src="https://flagcdn.com/w20/es.png"> Español</div>
+            <div class="lang-btn" data-lang="ru"><img src="https://flagcdn.com/w20/ru.png"> Русский</div>
+            <div class="lang-btn" data-lang="cn"><img src="https://flagcdn.com/w20/cn.png"> 中文</div>
+            <div class="lang-btn" data-lang="ar"><img src="https://flagcdn.com/w20/sa.png"> العربية</div>
+        </div>
     </div>
+</div>
 
-    <div class="language-selector">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Translate_Icon.png" id="langIcon">
-        <div id="langMenu"></div>
+<div id="products" class="section">
+    <h1 class="text-selectGame">انتخاب بازی</h1>
+    <div class="product">
+        <img src="godofwarII.jpg" alt="god of war 2">
+        <h2 class="text-game1">خدای جنگ ۲</h2>
+        <button class="pal-btn" onclick="window.open('pal1.html', '_blank')">PAL</button>
+        <button class="ntsc-btn" onclick="window.open('ntsc1.html', '_blank')">NTSC</button>
     </div>
+    <div class="product">
+        <img src="RE4.jpg" alt="Resident Evil 4">
+        <h2 class="text-game2">رزیدنت اویل ۴</h2>
+        <button class="pal-btn" onclick="window.open('pal2.html', '_blank')">PAL</button>
+        <button class="ntsc-btn" onclick="window.open('ntsc2.html', '_blank')">NTSC</button>
+    </div>
+</div>
 
-    <h2 class="text-selectGame">انتخاب بازی</h2>
-    <div class="text-game1">خدای جنگ ۲</div>
-    <div class="text-game2">رزیدنت اویل ۴</div>
-
-    <script src="translations.js"></script>
-    <script src="script.js"></script>
-
+<script src="script.js"></script>
 </body>
 </html>
