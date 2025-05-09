@@ -14,20 +14,28 @@ body {
 
 #loading {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
     background: #000;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 20px;
+    animation: pulse 1s infinite;
     z-index: 9999;
 }
 
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.1); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
 #loading img {
-    width: 120px; 
-    height: auto;
+    width: 80px;
     opacity: 0.8;
 }
 
@@ -51,7 +59,7 @@ body {
     right: 0;
     width: 60%;
     height: 100%;
-    background-color: rgba(50, 50, 50, 0.9); /* خاکستری تیره‌تر و محو */
+    background-color: rgba(50, 50, 50, 0.9);
     padding: 20px;
     transform: translateX(100%);
     opacity: 0;
@@ -81,12 +89,6 @@ body {
     margin-left: 10px;
 }
 
-.language-dropdown {
-    display: none;
-    flex-direction: column;
-    margin-top: 10px;
-}
-
 .section {
     padding: 80px 20px 20px;
     text-align: center;
@@ -113,29 +115,9 @@ body {
     margin: 5px;
     border-radius: 10px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-/* responsive.css */
-
-@media (max-width: 480px) {
-    .menu-items { width: 80%; }
-    .menu-items a { font-size: 16px; }
-    .product { width: 95%; }
-    .pal-btn, .ntsc-btn { padding: 10px 20px; font-size: 14px; }
-    .menu-btn { font-size: 24px; padding: 4px 8px; }
-    h1 { font-size: 20px; }
-}
-
-@media (max-width: 768px) {
-    .menu-items { width: 70%; }
-    .product { width: 90%; }
-    .pal-btn, .ntsc-btn { padding: 12px 22px; font-size: 16px; }
-    h1 { font-size: 24px; }
-}
-
-@media (max-width: 1200px) {
-    .menu-items { width: 60%; }
-    .product { width: 80%; }
-    .pal-btn, .ntsc-btn { padding: 12px 24px; font-size: 18px; }
-    h1 { font-size: 28px; }
+.pal-btn:hover, .ntsc-btn:hover {
+    background-color: #ddd;
 }
