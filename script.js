@@ -46,3 +46,32 @@ document.getElementById('playSoundBtn').addEventListener('click', function(e) {
         isPlaying = false;
     }
 });
+
+// swipe detection
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleGesture();
+});
+
+function handleGesture() {
+    const menu = document.getElementById('menuItems');
+    const isMenuOpen = menu.classList.contains('show');
+    const swipeThreshold = 50; // فاصله حداقل برای تشخیص swipe
+
+    if (touchStartX - touchEndX > swipeThreshold) {
+        // کشیدن به چپ → باز شدن منو
+        toggleMenu(true);
+    }
+
+    if (touchEndX - touchStartX > swipeThreshold && isMenuOpen) {
+        // کشیدن به راست → بستن منو
+        toggleMenu(false);
+    }
+}
