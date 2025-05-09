@@ -75,3 +75,14 @@ function handleGesture() {
         toggleMenu(false);
     }
 }
+
+document.querySelectorAll('.menu-items a').forEach(item => {
+    item.addEventListener('click', function () {
+        const span = this.querySelector('span');
+        const originalColor = span.style.color;
+        span.style.color = 'yellow';
+        setTimeout(() => {
+            span.style.color = originalColor || 'white';
+        }, 1500); // 1500 میلی‌ثانیه = 1.5 ثانیه
+    });
+});
