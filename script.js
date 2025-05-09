@@ -109,16 +109,3 @@ document.addEventListener('touchend', e => {
     touchEndX = e.changedTouches[0].screenX;
     handleSwipe();
 });
-
-function handleSwipe() {
-    const diffX = touchEndX - touchStartX;
-    if (Math.abs(diffX) > 50) { // فاصله حداقل برای شناسایی swipe
-        if (diffX > 0) {
-            // کشیدن به راست → بستن منو
-            toggleMenu(false);
-        } else {
-            // کشیدن به چپ → باز کردن منو
-            toggleMenu(true);
-        }
-    }
-}
