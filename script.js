@@ -36,16 +36,7 @@ document.getElementById('playSoundBtn').addEventListener('click', function(e) {
     isPlaying = !isPlaying;
 });
 
-document.querySelectorAll('.menu-items a').forEach(item => {
-    item.addEventListener('click', function () {
-        const span = this.querySelector('span');
-        const originalColor = span.style.color;
-        span.style.color = 'yellow';
-        setTimeout(() => { span.style.color = originalColor || 'white'; }, 1500);
-    });
-});
-
-// Search functionality
+// Search functionality in menu
 document.getElementById('searchInput').addEventListener('input', function() {
     const query = this.value.toLowerCase();
     document.querySelectorAll('.product').forEach(product => {
@@ -54,19 +45,17 @@ document.getElementById('searchInput').addEventListener('input', function() {
     });
 });
 
-// swipe handling
+// Swipe handling
 let touchStartX = 0;
 let touchEndX = 0;
 
 document.addEventListener('touchstart', e => {
     touchStartX = e.changedTouches[0].screenX;
 });
-
 document.addEventListener('touchend', e => {
     touchEndX = e.changedTouches[0].screenX;
     handleSwipe();
 });
-
 function handleSwipe() {
     const diffX = touchEndX - touchStartX;
     if (Math.abs(diffX) > 50) {
@@ -78,9 +67,43 @@ function handleSwipe() {
     }
 }
 
-// Language selector handling
-document.getElementById('languageSelector').addEventListener('click', function(e) {
+// Language selector with flags
+const translations = {
+    "fa": { name: "فارسی", flag: "https://flagcdn.com/w40/ir.png" },
+    "en": { name: "English", flag: "https://flagcdn.com/w40/gb.png" },
+    "ar": { name: "العربية", flag: "https://flagcdn.com/w40/sa.png" },
+    "fr": { name: "Français", flag: "https://flagcdn.com/w40/fr.png" },
+    "de": { name: "Deutsch", flag: "https://flagcdn.com/w40/de.png" },
+    "ru": { name: "Русский", flag: "https://flagcdn.com/w40/ru.png" },
+    "zh": { name: "中文", flag: "https://flagcdn.com/w40/cn.png" }
+};
+
+const languageSelector = document.getElementById('languageSelector');
+const languageList = document.getElementById('languageList');
+
+languageSelector.addEventListener('click', function(e) {
     e.preventDefault();
-    const langList = document.getElementById('languageList');
-    langList.classList.toggle('show');
+    languageList.classList.toggle('show');
 });
+
+Object.entries(translations).forEach(([key, { name, flag }]) => {
+    const div = document.createElement('div');
+    div.innerHTML = `<img src="${flag}" alt="${name}"><span>${name}</span>`;
+    div.addEventListener('click', () => changeLanguage(key));
+    languageList.appendChild(div);
+});
+
+function changeLanguage(lang) {
+    fetch('translations.json')
+        .then(response => response.json())
+        .then(data => {
+            document.querySelector('.text-home').textContent = data[lang].home;
+            document.querySelector('.text-products').textContent = data[lang].products;
+            document.querySelector('.text-selectGame').textContent = data[lang].selectGame;
+            document.querySelector('.text-game1').textContent = data[lang].game1;
+            document.querySelector('.text-game2').textContent = data[lang].game2;
+            document.querySelector('.text-telegram').textContent = data[lang].telegram;
+            document.querySelector('.text-youtube').textContent = data[lang].youtube;
+            languageList.classList.remove('show');
+        });
+           }
