@@ -2,68 +2,110 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>خدای جنگ ۲ - نسخه NTSC</title>
+  <title>چیت‌های God of War 2 - NTSC</title>
+  <link rel="stylesheet" href="style.css">
   <style>
     body {
       background: #111;
-      color: white;
-      font-family: sans-serif;
-      direction: rtl;
+      font-family: 'Tahoma', sans-serif;
+      color: #fff;
       padding: 30px;
+      direction: rtl;
     }
+
+    .cheat-container {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      max-width: 600px;
+      margin: auto;
+    }
+
     .cheat-card {
-      background: rgba(0,0,0,0.7);
-      border: 1px solid #555;
-      border-radius: 15px;
-      padding: 20px;
-      margin-bottom: 25px;
-      backdrop-filter: blur(6px);
+      background: #1c1c1c;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      padding-bottom: 16px;
     }
-    .cheat-card .price {
+
+    .cheat-cover {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .cheat-price {
+      font-size: 1.1rem;
+      background: #222;
+      padding: 8px 16px;
+      text-align: center;
+      color: #00ffcc;
       font-weight: bold;
-      color: #0f0;
-      font-size: 1.3em;
-      margin-bottom: 10px;
     }
-    .cheat-card .title {
-      font-size: 1.1em;
-      margin-bottom: 15px;
+
+    .cheat-title {
+      padding: 12px 16px;
+      font-size: 1rem;
+      text-align: center;
     }
-    .buttons {
+
+    .cheat-buttons {
       display: flex;
       justify-content: space-between;
+      padding: 0 16px;
     }
-    .buttons button {
-      background: #222;
+
+    .yt-btn, .cart-btn {
+      background: #333;
       color: white;
-      padding: 8px 15px;
-      border: 1px solid #444;
-      border-radius: 10px;
-      cursor: pointer;
+      padding: 8px 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+      font-size: 0.9rem;
+    }
+
+    .yt-btn:hover {
+      background: #c4302b;
+    }
+
+    .cart-btn:hover {
+      background: #009900;
     }
   </style>
 </head>
 <body>
 
-  <h1>خدای جنگ ۲ - نسخه NTSC</h1>
-  <p>در این صفحه می‌توانید اطلاعات مربوط به چیت‌های این نسخه را مشاهده یا دانلود کنید.</p>
+  <h1 style="text-align: center; margin-bottom: 40px;">چیت‌های God of War 2 - نسخه NTSC</h1>
 
-  <div class="cheat-card">
-    <div class="price">0.30$</div>
-    <div class="title">Press R2 + L2 To Refill Health</div>
-    <div class="buttons">
-      <button>یوتیوب</button>
-      <button>افزودن به سبد خرید</button>
-    </div>
-  </div>
+  <div class="cheat-container">
 
-  <div class="cheat-card">
-    <div class="price">0.50$</div>
-    <div class="title">Infinite Magic – Press R1 + L2</div>
-    <div class="buttons">
-      <button>یوتیوب</button>
-      <button>افزودن به سبد خرید</button>
+    <!-- آیتم ۱ -->
+    <div class="cheat-card">
+      <img src="covers/refill-health.jpg" alt="Refill Health" class="cheat-cover">
+      <div class="cheat-price">0.30$</div>
+      <div class="cheat-title">Press R2 + L2 To Refill Health</div>
+      <div class="cheat-buttons">
+        <a href="#" class="yt-btn">یوتیوب</a>
+        <a href="#" class="cart-btn">افزودن به سبد خرید</a>
+      </div>
     </div>
+
+    <!-- آیتم ۲ -->
+    <div class="cheat-card">
+      <img src="covers/infinite-magic.jpg" alt="Infinite Magic" class="cheat-cover">
+      <div class="cheat-price">0.50$</div>
+      <div class="cheat-title">Infinite Magic – Press R1 + L2</div>
+      <div class="cheat-buttons">
+        <a href="#" class="yt-btn">یوتیوب</a>
+        <a href="#" class="cart-btn">افزودن به سبد خرید</a>
+      </div>
+    </div>
+
+    <!-- آیتم‌های بعدی هم به همین صورت اضافه می‌شن... -->
+
   </div>
 
 </body>
