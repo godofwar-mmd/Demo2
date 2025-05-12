@@ -57,12 +57,12 @@ window.addEventListener('load', function() {
     }, 4000);
 });
 </script>
-
-</body>
-    <div id="menuContainer"></div>
+<div id="menuContainer"></div>
 <script>
     fetch('menu.html')
         .then(res => res.text())
         .then(html => document.getElementById('menuContainer').innerHTML = html);
 </script>
+
+</body>
 </html>
