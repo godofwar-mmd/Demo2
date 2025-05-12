@@ -1,0 +1,99 @@
+<div class="menu-btn" id="menuBtn">⋮</div>
+
+<div class="menu-items" id="menuItems">
+    <input type="text" id="searchInput" placeholder="جست‌وجو...">
+    <a href="index.html"><img src="https://cdn-icons-png.flaticon.com/512/25/25694.png"><span class="text-home">خانه</span></a>
+    <a href="index.html"><img src="https://cdn-icons-png.flaticon.com/512/1170/1170627.png"><span class="text-products">محصولات</span></a>
+    <a href="#" id="languageSelector"><img src="Google_Translate_logo.png"><span>انتخاب زبان</span></a>
+    <div id="languageList" class="language-list"></div>
+    <a href="https://youtube.com/persiangame_fa" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"><span class="text-youtube">یوتیوب</span></a>
+    <a href="https://t.me/persiangame_fa" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png"><span class="text-telegram">تلگرام</span></a>
+    <a href="https://t.me/+Jna8gMc0g75mODE0" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/134/134932.png"><span class="text-contact">ارتباط با ما</span></a>
+    <a href="#" id="playSoundBtn"><img id="soundIcon" src="https://cdn-icons-png.flaticon.com/512/727/727269.png"><span>صدا</span></a>
+</div>
+
+<script>
+    if (!window.menuLoaded) {
+        window.menuLoaded = true;
+
+        let audio = new Audio('ps2_startup.mp3');
+        audio.loop = true;
+        let isPlaying = false;
+
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const loading = document.getElementById('loading');
+                if (loading) loading.style.display = 'none';
+            }, 4000);
+
+            audio.play().then(() => {
+                isPlaying = true;
+                const icon = document.getElementById('soundIcon');
+                if (icon) icon.src = 'https://cdn-icons-png.flaticon.com/512/727/727245.png';
+            }).catch(() => {});
+        });
+
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('#menuBtn')) {
+                const menu = document.getElementById('menuItems');
+                const btn = document.getElementById('menuBtn');
+                menu.classList.toggle('show');
+                if (btn) btn.style.opacity = menu.classList.contains('show') ? '0' : '1';
+            }
+        });
+
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('#playSoundBtn')) {
+                e.preventDefault();
+                const icon = document.getElementById('soundIcon');
+                if (isPlaying) {
+                    audio.pause();
+                    icon.src = 'https://cdn-icons-png.flaticon.com/512/727/727269.png';
+                } else {
+                    audio.play();
+                    icon.src = 'https://cdn-icons-png.flaticon.com/512/727/727245.png';
+                }
+                isPlaying = !isPlaying;
+            }
+        });
+
+        const translations = {
+            "fa": { name: "فارسی", flag: "https://flagcdn.com/w40/ir.png" },
+            "en": { name: "English", flag: "https://flagcdn.com/w40/gb.png" },
+            "ar": { name: "العربية", flag: "https://flagcdn.com/w40/sa.png" },
+            "fr": { name: "Français", flag: "https://flagcdn.com/w40/fr.png" },
+            "de": { name: "Deutsch", flag: "https://flagcdn.com/w40/de.png" },
+            "ru": { name: "Русский", flag: "https://flagcdn.com/w40/ru.png" },
+            "zh": { name: "中文", flag: "https://flagcdn.com/w40/cn.png" }
+        };
+
+        const languageSelector = document.getElementById('languageSelector');
+        const languageList = document.getElementById('languageList');
+
+        if (languageSelector && languageList) {
+            languageSelector.addEventListener('click', function(e) {
+                e.preventDefault();
+                languageList.classList.toggle('show');
+            });
+
+            Object.entries(translations).forEach(([key, { name, flag }]) => {
+                const div = document.createElement('div');
+                div.innerHTML = `<img src="${flag}" alt="${name}"><span>${name}</span>`;
+                div.addEventListener('click', () => changeLanguage(key));
+                languageList.appendChild(div);
+            });
+
+            function changeLanguage(lang) {
+                fetch('translations.json')
+                    .then(res => res.json())
+                    .then(data => {
+                        document.querySelector('.text-home').textContent = data[lang].home;
+                        document.querySelector('.text-products').textContent = data[lang].products;
+                        document.querySelector('.text-telegram').textContent = data[lang].telegram;
+                        document.querySelector('.text-youtube').textContent = data[lang].youtube;
+                        languageList.classList.remove('show');
+                    });
+            }
+        }
+    }
+</script>
