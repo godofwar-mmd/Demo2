@@ -1,81 +1,23 @@
-<!DOCTYPE html>
-<html lang="fa">
-<head>
-    <meta charset="UTF-8">
-    <title>GOD OF WAR 2 - NTSC</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="responsive.css">
-    <link rel="stylesheet" href="menu.css">
-    <style>
-        body {
-            background-image: url('ntsc1.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
-        #loading {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: black;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
-        #loading img {
-            width: 120px;
-            animation: pulse 1s infinite;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-    </style>
-</head>
-<body>
+GOD OF WAR 2 - NTSC body { background-image: url('ntsc1.png'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed; } #loading { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: black; display: flex; justify-content: center; align-items: center; z-index: 9999; } #loading img { width: 120px; animation: pulse 1s infinite; } @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } } .cheat-scroll-container { display: flex; flex-direction: column; gap: 20px; padding: 20px; } .cheat-card { background: rgba(0, 0, 0, 0.7); border-radius: 15px; padding: 20px; color: white; backdrop-filter: blur(6px); border: 1px solid #555; position: relative; } .cheat-card h3 { margin-top: 0; font-size: 1.2em; } .cheat-card .buttons { display: flex; justify-content: space-between; margin-top: 15px; } .cheat-card .buttons button { background: #222; border: 1px solid #444; padding: 8px 16px; border-radius: 10px; color: white; cursor: pointer; } .cheat-card .price { position: absolute; top: 15px; left: 20px; font-weight: bold; background: transparent; color: #0f0; } 
 
-<!-- منو -->
-<div id="menuContainer"></div>
+خدای جنگ ۲ - نسخه NTSC 
 
-<!-- لودینگ -->
-<div id="loading">
-    <img src="gow2.jpg" alt="Loading">
-</div>
+در این صفحه می‌توانید اطلاعات مربوط به این نسخه از بازی را مشاهده یا دانلود کنید.
 
-<!-- محتوای صفحه -->
-<div class="section">
-    <h1>خدای جنگ ۲ - نسخه NTSC</h1>
-    <p>در این صفحه می‌توانید اطلاعات مربوط به این نسخه از بازی را مشاهده یا دانلود کنید.</p>
-    <img src="godofwarII.jpg" alt="خدای جنگ ۲" style="width: 80%; max-width: 500px; border-radius: 10px; margin: 20px 0;">
-    <p><a href="files/gow2-cheats.zip" download style="color: white; text-decoration: underline;">دانلود چیت‌ها</a></p>
-    <p><a href="index.html" style="color: white; text-decoration: underline;">بازگشت به صفحه اصلی</a></p>
-</div>
+دانلود چیت‌ها
 
-<!-- حذف لودینگ -->
-<script>
-window.addEventListener('load', function() {
-    setTimeout(() => {
-        document.getElementById('loading').style.display = 'none';
-    }, 4000);
-});
-</script>
+بازگشت به صفحه اصلی
 
-<!-- بارگذاری منو -->
-<script>
-    fetch('menu.html')
-        .then(res => res.text())
-        .then(html => {
-            document.getElementById('menuContainer').innerHTML = html;
-            const script = document.createElement('script');
-            script.src = 'menu.js';
-            document.body.appendChild(script);
-        });
-</script>
+0.30$
 
-</body>
-</html>
+Press R2 + L2 To Refill Health 
+
+یوتیوب افزودن به سبد خرید 
+
+0.50$
+
+Infinite Magic – Press R1 + L2 
+
+یوتیوب افزودن به سبد خرید 
+
+window.addEventListener('load', function() { setTimeout(() => { document.getElementById('loading').style.display = 'none'; }, 4000); }); fetch('menu.html') .then(res => res.text()) .then(html => { document.getElementById('menuContainer').innerHTML = html; const script = document.createElement('script'); script.src = 'menu.js'; document.body.appendChild(script); }); 
