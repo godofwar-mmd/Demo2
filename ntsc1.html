@@ -2,7 +2,7 @@
 <html lang="fa">
 <head>
     <meta charset="UTF-8">
-    <title>خدای جنگ ۲ - NTSC</title>
+    <title>GOD OF WAR 2 - NTSC</title>
     <link rel="stylesheet" href="style.css">
     <style>
         body {
@@ -37,6 +37,8 @@
 </head>
 <body>
 
+    <div id="menuContainer"></div>
+    
 <div id="loading">
     <img src="gow2.jpg" alt="Loading">
 </div>
@@ -57,7 +59,7 @@ window.addEventListener('load', function() {
     }, 4000);
 });
 </script>
-<div id="menuContainer"></div>
+
 <script>
     fetch('menu.html')
         .then(res => res.text())
