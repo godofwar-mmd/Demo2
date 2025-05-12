@@ -37,21 +37,25 @@
 </head>
 <body>
 
-    <div id="menuContainer"></div>
-    
+<!-- منوی قابل بارگذاری -->
+<div id="menuContainer"></div>
+
+<!-- لودینگ -->
 <div id="loading">
     <img src="gow2.jpg" alt="Loading">
 </div>
 
+<!-- محتوای صفحه -->
 <div class="section">
     <h1>خدای جنگ ۲ - نسخه NTSC</h1>
     <p>لطفا چیت کد هایی که می‌خواهید رو انتخاب کنید</p>
     <img src="godofwarII.jpg" alt="خدای جنگ ۲" style="width: 80%; max-width: 500px; border-radius: 10px; margin: 20px 0;">
     <p>برای دانلود بازی یا مشاهده اطلاعات بیشتر به لینک‌های زیر مراجعه کنید:</p>
-    <a href="https://example.com/download" class="pal-btn" target="_blank">دانلود</a>
+    <a href="files/gow2-cheats.zip" class="pal-btn" download>دانلود</a>
     <a href="index.html" class="ntsc-btn">بازگشت به صفحه اصلی</a>
 </div>
 
+<!-- حذف لودینگ بعد از چند ثانیه -->
 <script>
 window.addEventListener('load', function() {
     setTimeout(() => {
@@ -60,6 +64,7 @@ window.addEventListener('load', function() {
 });
 </script>
 
+<!-- بارگذاری منو از فایل مستقل -->
 <script>
     fetch('menu.html')
         .then(res => res.text())
