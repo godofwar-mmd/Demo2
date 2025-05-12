@@ -59,4 +59,10 @@ window.addEventListener('load', function() {
 </script>
 
 </body>
+    <div id="menuContainer"></div>
+<script>
+    fetch('menu.html')
+        .then(res => res.text())
+        .then(html => document.getElementById('menuContainer').innerHTML = html);
+</script>
 </html>
