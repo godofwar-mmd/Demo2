@@ -5,6 +5,7 @@
     <title>GOD OF WAR 2 - NTSC</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="menu.css">
     <style>
         body {
             background-image: url('ntsc1.png');
@@ -38,7 +39,7 @@
 </head>
 <body>
 
-<!-- منوی قابل بارگذاری -->
+<!-- منو -->
 <div id="menuContainer"></div>
 
 <!-- لودینگ -->
@@ -49,14 +50,13 @@
 <!-- محتوای صفحه -->
 <div class="section">
     <h1>خدای جنگ ۲ - نسخه NTSC</h1>
-    <p>لطفا چیت کد هایی که می‌خواهید رو انتخاب کنید</p>
+    <p>در این صفحه می‌توانید اطلاعات مربوط به این نسخه از بازی را مشاهده یا دانلود کنید.</p>
     <img src="godofwarII.jpg" alt="خدای جنگ ۲" style="width: 80%; max-width: 500px; border-radius: 10px; margin: 20px 0;">
-    <p>برای دانلود بازی یا مشاهده اطلاعات بیشتر به لینک‌های زیر مراجعه کنید:</p>
-    <a href="files/gow2-cheats.zip" class="pal-btn" download>دانلود</a>
-    <a href="index.html" class="ntsc-btn">بازگشت به صفحه اصلی</a>
+    <p><a href="files/gow2-cheats.zip" download style="color: white; text-decoration: underline;">دانلود چیت‌ها</a></p>
+    <p><a href="index.html" style="color: white; text-decoration: underline;">بازگشت به صفحه اصلی</a></p>
 </div>
 
-<!-- حذف لودینگ بعد از چند ثانیه -->
+<!-- حذف لودینگ -->
 <script>
 window.addEventListener('load', function() {
     setTimeout(() => {
@@ -65,11 +65,16 @@ window.addEventListener('load', function() {
 });
 </script>
 
-<!-- بارگذاری منو از فایل مستقل -->
+<!-- بارگذاری منو -->
 <script>
     fetch('menu.html')
         .then(res => res.text())
-        .then(html => document.getElementById('menuContainer').innerHTML = html);
+        .then(html => {
+            document.getElementById('menuContainer').innerHTML = html;
+            const script = document.createElement('script');
+            script.src = 'menu.js';
+            document.body.appendChild(script);
+        });
 </script>
 
 </body>
