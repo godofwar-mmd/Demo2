@@ -36,53 +36,45 @@
     }
 
     .cheat-title {
-      padding: 12px 16px;
-      font-size: 1rem;
       text-align: center;
-      background: #2c2c2c;
-      font-weight: bold;
+      background: #000;
+      padding: 10px;
+      font-size: 0.95rem;
+      border-top: 1px solid #333;
     }
 
     .cheat-buttons {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 16px;
-    }
-
-    .yt-btn, .cart-btn, .price-btn {
-      padding: 8px 12px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: bold;
-      transition: background 0.3s ease;
+      padding: 10px 16px;
     }
 
     .yt-btn {
       background: #c4302b;
-      color: #fff;
+      color: white;
+      padding: 6px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.85rem;
     }
 
     .cart-btn {
-      background: #ff8800;
-      color: #fff;
+      background: #f57c00;
+      color: white;
+      padding: 6px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.85rem;
     }
 
-    .price-btn {
-      background: #3a3a3a;
+    .cheat-price {
+      background: #1c1c1c;
       color: #00ffcc;
-      cursor: default;
+      font-size: 0.85rem;
+      padding: 4px 10px;
+      border-radius: 6px;
     }
-
-    .yt-btn:hover {
-      background: #a3201f;
-    }
-
-    .cart-btn:hover {
-      background: #cc6f00;
-    }
-
   </style>
 </head>
 <body>
@@ -91,24 +83,24 @@
 
   <div class="cheat-container">
 
-    <!-- آیتم ۱ -->
+    <!-- کارت نمونه -->
     <div class="cheat-card">
       <img src="covers/refill-health.jpg" alt="Refill Health" class="cheat-cover">
-      <div class="cheat-title">چیت افزایش جان بی‌نهایت</div>
+      <div class="cheat-title">چیت افزایش جان بی نهایت</div>
       <div class="cheat-buttons">
         <a href="#" class="yt-btn">یوتیوب</a>
-        <span class="price-btn">0.30$</span>
+        <div class="cheat-price">0.30$</div>
         <a href="#" class="cart-btn">افزودن</a>
       </div>
     </div>
 
-    <!-- آیتم ۲ -->
+    <!-- کارت دوم -->
     <div class="cheat-card">
       <img src="covers/infinite-magic.jpg" alt="Infinite Magic" class="cheat-cover">
-      <div class="cheat-title">چیت جادوی بی‌نهایت</div>
+      <div class="cheat-title">چیت جادوی بی نهایت</div>
       <div class="cheat-buttons">
         <a href="#" class="yt-btn">یوتیوب</a>
-        <span class="price-btn">0.50$</span>
+        <div class="cheat-price">0.50$</div>
         <a href="#" class="cart-btn">افزودن</a>
       </div>
     </div>
