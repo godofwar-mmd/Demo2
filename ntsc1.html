@@ -2,63 +2,89 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>کارت چیت</title>
+  <title>Cheat Cards</title>
   <style>
     body {
       background-color: #111;
+      font-family: Tahoma, sans-serif;
+      color: white;
+      padding: 40px;
       display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
       justify-content: center;
-      align-items: center;
-      height: 100vh;
     }
 
     .card {
       position: relative;
       width: 360px;
-      height: auto;
     }
 
     .card img {
       width: 100%;
       border-radius: 20px;
+      display: block;
     }
 
     .btn {
       position: absolute;
-      bottom: 20px;
-      padding: 8px 16px;
+      padding: 6px 14px;
       border: none;
-      border-radius: 10px;
+      border-radius: 8px;
       font-weight: bold;
       color: white;
       cursor: pointer;
       font-family: inherit;
-    }
-
-    .add-btn {
-      background-color: #f59e0b;
-      right: 20px;
+      font-size: 0.9rem;
     }
 
     .youtube-btn {
       background-color: #dc2626;
-      right: 125px;
+      bottom: 68px;
+      right: 25px;
+    }
+
+    .add-btn {
+      background-color: #f59e0b;
+      bottom: 68px;
+      left: 25px;
     }
 
     .price-btn {
       background-color: #065f46;
-      left: 20px;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .title {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 1rem;
     }
   </style>
 </head>
 <body>
 
-<div class="card">
-  <img src="helmet-card.png" alt="چیت God Mode">
-  <button class="btn add-btn">افزودن به سبد خرید</button>
-  <button class="btn youtube-btn">یوتوب</button>
-  <button class="btn price-btn">$0.10</button>
-</div>
+  <!-- کارت اول -->
+  <div class="card">
+    <img src="helmet-card.png" alt="چیت God Mode">
+    <button class="btn youtube-btn">یوتوب</button>
+    <button class="btn add-btn">افزودن به سبد خرید</button>
+    <button class="btn price-btn">$0.10</button>
+    <div class="title">چیت حالت خدا</div>
+  </div>
+
+  <!-- کارت دوم -->
+  <div class="card">
+    <img src="helmet-card.png" alt="چیت جان بی‌نهایت">
+    <button class="btn youtube-btn">یوتوب</button>
+    <button class="btn add-btn">افزودن به سبد خرید</button>
+    <button class="btn price-btn">$0.25</button>
+    <div class="title">جان بی‌نهایت</div>
+  </div>
+
+  <!-- کارت‌های بیشتر... -->
 
 </body>
 </html>
