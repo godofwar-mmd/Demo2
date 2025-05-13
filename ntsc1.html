@@ -2,7 +2,7 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>چیت‌های God of War 2 - NTSC</title>
+  <title>چیت‌ها</title>
   <style>
     body {
       background: #111;
@@ -10,79 +10,80 @@
       color: #fff;
       padding: 30px;
       direction: rtl;
-    }
-
-    .cheat-container {
       display: flex;
-      flex-direction: column;
-      gap: 30px;
-      max-width: 600px;
-      margin: auto;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
     }
 
     .cheat-card {
       background: #1c1c1c;
+      width: 300px;
       border-radius: 16px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.6);
       overflow: hidden;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-      padding-bottom: 16px;
       position: relative;
     }
 
-    .cheat-card::before {
-      content: "";
-      display: block;
-      background-image: url('covers/refill-health.jpg'); /* تغییر بده */
+    .cheat-card .cover {
+      width: 100%;
+      height: 180px;
+      background-image: url('covers/default.jpg'); /* مسیر تصویرت رو اینجا بذار */
       background-size: cover;
       background-position: center;
-      height: 200px;
     }
 
-    .cheat-title {
-      font-size: 1.1rem;
+    .cheat-card .title {
       text-align: center;
-      padding: 12px 16px;
+      font-size: 1rem;
+      padding: 10px 15px;
+      border-bottom: 1px solid #333;
     }
 
-    .cheat-buttons {
+    .cheat-card .bottom-bar {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 0 16px;
+      justify-content: space-between;
+      background: #2a2a2a;
+      padding: 10px 15px;
     }
 
-    .yt-btn, .cart-btn {
-      background: #333;
-      color: white;
-      padding: 8px 12px;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background 0.3s ease;
+    .price-tag {
+      background: #00ffcc;
+      color: #000;
+      padding: 5px 10px;
+      border-radius: 10px;
+      font-weight: bold;
       font-size: 0.9rem;
     }
 
-    .yt-btn:hover {
+    .yt-btn, .cart-btn {
       background: #c4302b;
-    }
-
-    .cart-btn:hover {
-      background: #009900;
-    }
-
-    .cheat-price {
-      background: #222;
-      color: #00ffcc;
-      font-weight: bold;
-      padding: 6px 12px;
+      color: white;
+      border: none;
+      padding: 6px 10px;
       border-radius: 8px;
-      font-size: 0.95rem;
+      font-size: 0.8rem;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .cart-btn {
+      background: #ff6600;
     }
   </style>
 </head>
 <body>
 
-  <h1 style="text-align: center; margin-bottom: 40px;">چیت‌های God of War 2 - نسخه NTSC</h1>
+  <div class="cheat-card">
+    <div class="cover"></div>
+    <div class="title">عنوان چیت</div>
+    <div class="bottom-bar">
+      <a href="#" class="yt-btn">یوتیوب</a>
+      <div class="price-tag">0.50$</div>
+      <a href="#" class="cart-btn">افزودن</a>
+    </div>
+  </div>
 
-  <div class="cheat-container">
-
-    <!-- آیتم نمونه -->
+</body>
+</html>
