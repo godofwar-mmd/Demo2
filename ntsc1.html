@@ -1,125 +1,64 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>God of War 2 - NTSC</title>
+  <title>کارت چیت</title>
   <style>
     body {
       background-color: #111;
-      font-family: 'Tahoma', sans-serif;
-      color: white;
-      direction: rtl;
-      text-align: center;
-      padding: 20px;
-    }
-
-    h1 {
-      margin-bottom: 40px;
-    }
-
-    .cards-container {
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      gap: 30px;
+      height: 100vh;
     }
 
-    .cheat-card {
+    .card {
       position: relative;
-      width: 320px;
-      height: 180px;
-      background-image: url('helmet-card.png'); /* تصویر کامل */
-      background-size: cover;
-      background-position: center;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+      width: 360px;
+      height: auto;
     }
 
-    .overlay {
-      position: absolute;
-      bottom: 0;
+    .card img {
       width: 100%;
-      padding: 10px;
-      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 80%);
-    }
-
-    .cheat-title {
-      font-size: 16px;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-
-    .cheat-buttons {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 10px;
+      border-radius: 20px;
     }
 
     .btn {
-      padding: 6px 10px;
+      position: absolute;
+      bottom: 20px;
+      padding: 8px 16px;
       border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 13px;
-      transition: transform 0.2s;
-    }
-
-    .btn:hover {
-      transform: scale(1.1);
-    }
-
-    .btn-add {
-      background-color: orange;
-      color: black;
-    }
-
-    .btn-youtube {
-      background-color: red;
-      color: white;
-    }
-
-    .price {
-      background-color: #00ffc3;
-      color: black;
+      border-radius: 10px;
       font-weight: bold;
-      padding: 4px 10px;
-      border-radius: 6px;
+      color: white;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .add-btn {
+      background-color: #f59e0b;
+      right: 20px;
+    }
+
+    .youtube-btn {
+      background-color: #dc2626;
+      right: 125px;
+    }
+
+    .price-btn {
+      background-color: #065f46;
+      left: 20px;
     }
   </style>
 </head>
 <body>
 
-  <h1>چیت‌های God of War</h1>
-  <div class="cards-container" id="cardsContainer"></div>
-
-  <script>
-    const cheats = [
-      { title: "جان بی‌نهایت", price: "0.30$", youtube: "#" },
-      { title: "جادوی بی‌نهایت", price: "0.50$", youtube: "#" },
-      { title: "تمام اسلحه‌ها", price: "0.75$", youtube: "#" }
-    ];
-
-    const container = document.getElementById("cardsContainer");
-
-    cheats.forEach(c => {
-      const card = document.createElement("div");
-      card.className = "cheat-card";
-      card.innerHTML = `
-        <div class="overlay">
-          <div class="cheat-title">${c.title}</div>
-          <div class="cheat-buttons">
-            <button class="btn btn-youtube" onclick="window.open('${c.youtube}', '_blank')">یوتیوب</button>
-            <div class="price">${c.price}</div>
-            <button class="btn btn-add">افزودن</button>
-          </div>
-        </div>
-      `;
-      container.appendChild(card);
-    });
-  </script>
+<div class="card">
+  <img src="helmet-card.png" alt="چیت God Mode">
+  <button class="btn add-btn">افزودن به سبد خرید</button>
+  <button class="btn youtube-btn">یوتوب</button>
+  <button class="btn price-btn">$0.10</button>
+</div>
 
 </body>
 </html>
