@@ -2,112 +2,121 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GOD OF WAR 2 - NTSC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>God of War 2 - NTSC</title>
   <style>
     body {
       background-color: #111;
-      font-family: sans-serif;
-      color: #fff;
+      font-family: 'Tahoma', sans-serif;
+      color: white;
       direction: rtl;
+      text-align: center;
       padding: 20px;
     }
+
+    h1 {
+      margin-bottom: 40px;
+    }
+
     .cards-container {
       display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
     }
+
     .cheat-card {
-      width: 280px;
+      position: relative;
+      width: 320px;
       height: 180px;
-      background-image: url('helmet-card.png'); /* مسیر کارت تصویری */
+      background-image: url('helmet-full.png'); /* تصویر کامل */
       background-size: cover;
       background-position: center;
-      border-radius: 15px;
-      position: relative;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
     }
-    .card-content {
+
+    .overlay {
       position: absolute;
-      bottom: 10px;
+      bottom: 0;
       width: 100%;
-      text-align: center;
+      padding: 10px;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 80%);
     }
+
     .cheat-title {
       font-size: 16px;
-      margin-bottom: 8px;
-      color: white;
+      font-weight: bold;
+      margin-bottom: 5px;
     }
+
     .cheat-buttons {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center;
+      padding: 0 10px;
     }
-    .add-btn, .youtube-btn {
+
+    .btn {
+      padding: 6px 10px;
       border: none;
-      padding: 5px 10px;
       border-radius: 6px;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 13px;
+      transition: transform 0.2s;
     }
-    .add-btn {
+
+    .btn:hover {
+      transform: scale(1.1);
+    }
+
+    .btn-add {
       background-color: orange;
       color: black;
     }
-    .youtube-btn {
+
+    .btn-youtube {
       background-color: red;
       color: white;
     }
+
     .price {
       background-color: #00ffc3;
-      padding: 4px 10px;
-      border-radius: 5px;
+      color: black;
       font-weight: bold;
+      padding: 4px 10px;
+      border-radius: 6px;
     }
   </style>
 </head>
 <body>
 
-  <h1 style="text-align: center;">چیت‌های God of War</h1>
+  <h1>چیت‌های God of War</h1>
   <div class="cards-container" id="cardsContainer"></div>
 
   <script>
     const cheats = [
-      {
-        title: 'جان بی‌نهایت',
-        price: '0.30$',
-        youtube: '#',
-      },
-      {
-        title: 'جادوی بی‌نهایت',
-        price: '0.50$',
-        youtube: '#',
-      },
-      {
-        title: 'تمام اسلحه‌ها',
-        price: '0.75$',
-        youtube: '#',
-      }
+      { title: "جان بی‌نهایت", price: "0.30$", youtube: "#" },
+      { title: "جادوی بی‌نهایت", price: "0.50$", youtube: "#" },
+      { title: "تمام اسلحه‌ها", price: "0.75$", youtube: "#" }
     ];
 
-    const container = document.getElementById('cardsContainer');
+    const container = document.getElementById("cardsContainer");
 
-    cheats.forEach(cheat => {
-      const card = document.createElement('div');
-      card.className = 'cheat-card';
-
+    cheats.forEach(c => {
+      const card = document.createElement("div");
+      card.className = "cheat-card";
       card.innerHTML = `
-        <div class="card-content">
-          <div class="cheat-title">${cheat.title}</div>
+        <div class="overlay">
+          <div class="cheat-title">${c.title}</div>
           <div class="cheat-buttons">
-            <button class="add-btn">افزودن</button>
-            <div class="price">${cheat.price}</div>
-            <button class="youtube-btn" onclick="window.open('${cheat.youtube}', '_blank')">یوتیوب</button>
+            <button class="btn btn-youtube" onclick="window.open('${c.youtube}', '_blank')">یوتیوب</button>
+            <div class="price">${c.price}</div>
+            <button class="btn btn-add">افزودن</button>
           </div>
         </div>
       `;
-
       container.appendChild(card);
     });
   </script>
