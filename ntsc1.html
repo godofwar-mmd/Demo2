@@ -2,88 +2,115 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>چیت‌ها</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GOD OF WAR 2 - NTSC</title>
   <style>
     body {
-      background: #111;
-      font-family: 'Tahoma', sans-serif;
+      background-color: #111;
+      font-family: sans-serif;
       color: #fff;
-      padding: 30px;
       direction: rtl;
+      padding: 20px;
+    }
+    .cards-container {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
       gap: 20px;
+      justify-content: center;
     }
-
     .cheat-card {
-      background: #1c1c1c;
-      width: 300px;
-      border-radius: 16px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.6);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .cheat-card .cover {
-      width: 100%;
+      width: 280px;
       height: 180px;
-      background-image: url('covers/default.jpg'); /* مسیر تصویرت رو اینجا بذار */
+      background-image: url('helmet-card.png'); /* مسیر کارت تصویری */
       background-size: cover;
       background-position: center;
+      border-radius: 15px;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     }
-
-    .cheat-card .title {
+    .card-content {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
       text-align: center;
-      font-size: 1rem;
-      padding: 10px 15px;
-      border-bottom: 1px solid #333;
     }
-
-    .cheat-card .bottom-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: #2a2a2a;
-      padding: 10px 15px;
-    }
-
-    .price-tag {
-      background: #00ffcc;
-      color: #000;
-      padding: 5px 10px;
-      border-radius: 10px;
-      font-weight: bold;
-      font-size: 0.9rem;
-    }
-
-    .yt-btn, .cart-btn {
-      background: #c4302b;
+    .cheat-title {
+      font-size: 16px;
+      margin-bottom: 8px;
       color: white;
-      border: none;
-      padding: 6px 10px;
-      border-radius: 8px;
-      font-size: 0.8rem;
-      cursor: pointer;
-      text-decoration: none;
     }
-
-    .cart-btn {
-      background: #ff6600;
+    .cheat-buttons {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .add-btn, .youtube-btn {
+      border: none;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .add-btn {
+      background-color: orange;
+      color: black;
+    }
+    .youtube-btn {
+      background-color: red;
+      color: white;
+    }
+    .price {
+      background-color: #00ffc3;
+      padding: 4px 10px;
+      border-radius: 5px;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
 
-  <div class="cheat-card">
-    <div class="cover"></div>
-    <div class="title">عنوان چیت</div>
-    <div class="bottom-bar">
-      <a href="#" class="yt-btn">یوتیوب</a>
-      <div class="price-tag">0.50$</div>
-      <a href="#" class="cart-btn">افزودن</a>
-    </div>
-  </div>
+  <h1 style="text-align: center;">چیت‌های God of War</h1>
+  <div class="cards-container" id="cardsContainer"></div>
+
+  <script>
+    const cheats = [
+      {
+        title: 'جان بی‌نهایت',
+        price: '0.30$',
+        youtube: '#',
+      },
+      {
+        title: 'جادوی بی‌نهایت',
+        price: '0.50$',
+        youtube: '#',
+      },
+      {
+        title: 'تمام اسلحه‌ها',
+        price: '0.75$',
+        youtube: '#',
+      }
+    ];
+
+    const container = document.getElementById('cardsContainer');
+
+    cheats.forEach(cheat => {
+      const card = document.createElement('div');
+      card.className = 'cheat-card';
+
+      card.innerHTML = `
+        <div class="card-content">
+          <div class="cheat-title">${cheat.title}</div>
+          <div class="cheat-buttons">
+            <button class="add-btn">افزودن</button>
+            <div class="price">${cheat.price}</div>
+            <button class="youtube-btn" onclick="window.open('${cheat.youtube}', '_blank')">یوتیوب</button>
+          </div>
+        </div>
+      `;
+
+      container.appendChild(card);
+    });
+  </script>
 
 </body>
 </html>
