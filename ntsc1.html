@@ -2,17 +2,19 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>Cheat Cards</title>
+  <title>God of war 2 - NTSC</title>
   <style>
     body {
       background-color: #111;
-      font-family: Tahoma, sans-serif;
-      color: white;
-      padding: 40px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: center;
+      font-family: sans-serif;
+      padding: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      justify-items: center;
     }
 
     .card {
@@ -23,68 +25,125 @@
     .card img {
       width: 100%;
       border-radius: 20px;
-      display: block;
     }
 
     .btn {
       position: absolute;
-      padding: 6px 14px;
+      background: transparent;
       border: none;
-      border-radius: 8px;
-      font-weight: bold;
       color: white;
+      font-weight: bold;
+      font-size: 14px;
+      padding: 8px 16px;
       cursor: pointer;
-      font-family: inherit;
-      font-size: 0.9rem;
     }
 
-    .youtube-btn {
-      background-color: #dc2626;
-      bottom: 68px;
-      right: 25px;
+    .btn:hover {
+      opacity: 0.8;
     }
 
     .add-btn {
-      background-color: #f59e0b;
-      bottom: 68px;
-      left: 25px;
+      bottom: 20px;
+      right: 22px;
+      color: #10b981;
     }
 
     .price-btn {
-      background-color: #065f46;
       bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
+      right: 137px;
+      color: #ef4444;
     }
 
-    .title {
-      text-align: center;
-      margin-top: 10px;
-      font-size: 1rem;
+    .youtube-btn {
+      bottom: 20px;
+      left: 23px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: #facc15;
+    }
+
+    .title-box {
+      position: absolute;
+      bottom: 100px;
+      right: 70px;
+      font-weight: bold;
+      font-size: 18px;
+      color: white;
+    }
+
+    .youtube-btn svg {
+      width: 16px;
+      height: 16px;
+      fill: #facc15;
     }
   </style>
 </head>
 <body>
 
-  <!-- کارت اول -->
+<div class="grid">
+
   <div class="card">
-    <img src="helmet-card.png" alt="چیت God Mode">
-    <button class="btn youtube-btn">یوتوب</button>
+    <img src="helmet-card.png" alt="چیت ۱">
+    <div class="title-box">چیت God Mode</div>
     <button class="btn add-btn">افزودن به سبد خرید</button>
     <button class="btn price-btn">$0.10</button>
-    <div class="title">چیت حالت خدا</div>
+    <button class="btn youtube-btn">
+      <svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6z"/></svg> یوتوب
+    </button>
   </div>
 
-  <!-- کارت دوم -->
   <div class="card">
-    <img src="helmet-card.png" alt="چیت جان بی‌نهایت">
-    <button class="btn youtube-btn">یوتوب</button>
+    <img src="helmet-card.png" alt="چیت ۲">
+    <div class="title-box">چیت Wall Hack</div>
     <button class="btn add-btn">افزودن به سبد خرید</button>
-    <button class="btn price-btn">$0.25</button>
-    <div class="title">جان بی‌نهایت</div>
+    <button class="btn price-btn">$0.12</button>
+    <button class="btn youtube-btn">
+      <svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6z"/></svg> یوتوب
+    </button>
   </div>
 
-  <!-- کارت‌های بیشتر... -->
+  <div class="card">
+    <img src="helmet-card.png" alt="چیت ۳">
+    <div class="title-box">چیت Aim Bot</div>
+    <button class="btn add-btn">افزودن به سبد خرید</button>
+    <button class="btn price-btn">$0.14</button>
+    <button class="btn youtube-btn">
+      <svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6z"/></svg> یوتوب
+    </button>
+  </div>
+
+  <div class="card">
+    <img src="helmet-card.png" alt="چیت ۴">
+    <div class="title-box">چیت Infinite Ammo</div>
+    <button class="btn add-btn">افزودن به سبد خرید</button>
+    <button class="btn price-btn">$0.11</button>
+    <button class="btn youtube-btn">
+      <svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6z"/></svg> یوتوب
+    </button>
+  </div>
+
+  <div class="card">
+    <img src="helmet-card.png" alt="چیت ۵">
+    <div class="title-box">چیت Speed Hack</div>
+    <button class="btn add-btn">افزودن به سبد خرید</button>
+    <button class="btn price-btn">$0.13</button>
+    <button class="btn youtube-btn">
+      <svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6z"/></svg> یوتوب
+    </button>
+  </div>
+
+  <div class="card">
+    <img src="helmet-card.png" alt="چیت ۶">
+    <div class="title-box">چیت One Hit Kill</div>
+    <button class="btn add-btn">افزودن به سبد خرید</button>
+    <button class="btn price-btn">$0.09</button>
+    <button class="btn youtube-btn">
+      <svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6z"/></svg> یوتوب
+    </button>
+  </div>
+
+</div>
 
 </body>
 </html>
